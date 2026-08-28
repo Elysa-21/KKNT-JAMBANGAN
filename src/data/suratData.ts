@@ -17,7 +17,7 @@ export interface Kategori {
   warna: string;
 }
 
-export const kategoriList: Kategori[] = [
+const semuaKategori: Kategori[] = [
   {
     id: "keterangan",
     nama: "Surat Keterangan",
@@ -48,7 +48,11 @@ export const kategoriList: Kategori[] = [
   },
 ];
 
-export const suratList: JenisSurat[] = [
+export const kategoriList = semuaKategori.filter(
+  (kategori) => kategori.id === "keterangan",
+);
+
+const semuaSurat: JenisSurat[] = [
   // SURAT KETERANGAN
   {
     id: "keterangan-domisili",
@@ -212,6 +216,10 @@ export const suratList: JenisSurat[] = [
     kategoriId: "pernyataan",
   },
 ];
+
+export const suratList = semuaSurat.filter(
+  (surat) => surat.kategoriId === "keterangan",
+);
 
 export function getSuratByKategori(kategoriId: string): JenisSurat[] {
   return suratList.filter((s) => s.kategoriId === kategoriId);
