@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { kategoriList } from "../data/suratData";
+import { getSuratByKategori, kategoriList } from "../data/suratData";
 
 /* =========================================================
    INTERSECTION OBSERVER
@@ -242,6 +242,7 @@ function ServiceIcon({ type }: { type: string }) {
 
 export default function Layanan() {
   const navigate = useNavigate();
+  const jumlahSuratKeterangan = getSuratByKategori("keterangan").length;
 
   const header = useInView(0.1);
   const cards = useInView(0.05);
@@ -376,7 +377,7 @@ export default function Layanan() {
 
           </span>
 
-          Kategori
+          Layanan Desa Jambangan
         </div>
 
         {/* Title */}
@@ -445,9 +446,22 @@ export default function Layanan() {
             leading-relaxed
           "
         >
-          Pilih kategori surat yang Anda butuhkan untuk melihat
-          jenis-jenis surat yang tersedia beserta persyaratannya.
+          Informasi dan pengajuan Surat Keterangan tersedia dalam satu layanan
+          yang jelas, praktis, dan mudah diakses.
         </p>
+
+        <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs font-semibold text-green-700">
+          <span className="inline-flex items-center gap-2 rounded-full border border-green-100 bg-white px-3.5 py-2 shadow-sm">
+            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-green-500 text-[10px] text-white">
+              {jumlahSuratKeterangan}
+            </span>
+            jenis surat tersedia
+          </span>
+          <span className="inline-flex items-center gap-2 rounded-full border border-green-100 bg-white px-3.5 py-2 shadow-sm">
+            <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+            Persyaratan lengkap
+          </span>
+        </div>
 
       </div>
 
@@ -459,9 +473,8 @@ export default function Layanan() {
         ref={cards.ref}
         className="
           relative
-          grid
-          sm:grid-cols-2
-          gap-6
+          mx-auto
+          max-w-4xl
         "
       >
 
@@ -480,7 +493,7 @@ export default function Layanan() {
                 relative
                 text-left
 
-                rounded-[26px]
+                rounded-[30px]
                 overflow-hidden
 
                 bg-white
@@ -496,7 +509,7 @@ export default function Layanan() {
                 duration-700
                 ease-out
 
-                hover:-translate-y-2
+                hover:-translate-y-1
                 hover:border-green-200
                 hover:shadow-[0_20px_45px_rgba(22,101,52,0.12)]
 
@@ -551,7 +564,7 @@ export default function Layanan() {
                   CARD CONTENT
               ================================================== */}
 
-              <div className="relative p-6">
+              <div className="relative p-6 sm:flex sm:items-center sm:gap-8 sm:p-8">
 
                 {/* Decorative background */}
 
@@ -608,7 +621,7 @@ export default function Layanan() {
                     INTERACTIVE SERVICE ICON
                 ================================================== */}
 
-                <div className="relative mb-5 w-fit">
+                <div className="relative mb-5 w-fit sm:mb-0 sm:flex-none">
 
                   {/* Outer glow */}
 
@@ -776,6 +789,12 @@ export default function Layanan() {
                     TITLE
                 ================================================== */}
 
+                <div className="relative flex-1">
+                  <div className="mb-2 inline-flex items-center gap-2 rounded-full bg-green-50 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.16em] text-green-600">
+                    <span className="h-1.5 w-1.5 rounded-full bg-green-500" />
+                    Layanan tersedia
+                  </div>
+
                 <h2
                   className="
                     relative
@@ -784,7 +803,8 @@ export default function Layanan() {
                     font-black
 
                     text-green-900
-                    text-lg
+                    text-xl
+                    sm:text-2xl
 
                     mb-2
 
@@ -871,6 +891,8 @@ export default function Layanan() {
                   >
                     <ArrowIcon />
                   </span>
+
+                </div>
 
                 </div>
 
