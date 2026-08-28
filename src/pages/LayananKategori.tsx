@@ -211,6 +211,17 @@ function ServiceIcon({ type }: { type: string }) {
         </svg>
       );
 
+    case "death-certificate":
+      return (
+        <svg {...common}>
+          <path d="M6 3.5h8l4 4V20a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 6 20z" />
+          <path d="M14 3.5V8h4" />
+          <path d="M12 12v5" />
+          <path d="M10 17h4" />
+          <path d="M12 8.5c-1.1 1.2-1.3 2.1 0 3.1 1.3-1 1.1-1.9 0-3.1Z" />
+        </svg>
+      );
+
     case "file-baby":
       return (
         <svg {...common}>

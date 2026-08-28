@@ -15,6 +15,73 @@ function useInView(threshold = 0.1) {
   return { ref, visible };
 }
 
+function DeathCertificateIcon() {
+  return (
+    <svg
+      width="34"
+      height="34"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.7"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M6 3.5h8l4 4V20a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 6 20z" />
+      <path d="M14 3.5V8h4" />
+      <path d="M12 12v5" />
+      <path d="M10 17h4" />
+      <path d="M12 8.5c-1.1 1.2-1.3 2.1 0 3.1 1.3-1 1.1-1.9 0-3.1Z" />
+    </svg>
+  );
+}
+
+const informasiSurat: Record<
+  string,
+  { judul: string; item: { judul: string; isi: string }[] }
+> = {
+  "keterangan-domisili": {
+    judul: "Informasi Domisili",
+    item: [
+      { judul: "Pastikan alamat sesuai", isi: "Gunakan data alamat yang sama dengan KTP dan Kartu Keluarga." },
+      { judul: "Untuk warga desa", isi: "Surat ini menerangkan domisili pemohon di wilayah Desa Jambangan." },
+      { judul: "Isi data dengan lengkap", isi: "Periksa kembali NIK, alamat, dan data pemohon sebelum mengirim formulir." },
+    ],
+  },
+  "keterangan-usaha": {
+    judul: "Informasi Usaha",
+    item: [
+      { judul: "Data usaha jelas", isi: "Tuliskan nama, jenis, dan alamat usaha sesuai kondisi sebenarnya." },
+      { judul: "Foto lokasi usaha", isi: "Siapkan foto tempat usaha agar proses verifikasi lebih mudah." },
+      { judul: "Cek tujuan pengajuan", isi: "Pastikan surat digunakan sesuai kebutuhan, seperti UMKM, izin, atau kredit usaha." },
+    ],
+  },
+  "keterangan-kematian": {
+    judul: "Informasi Kematian",
+    item: [
+      { judul: "Data almarhum lengkap", isi: "Pastikan nama dan NIK almarhum/almarhumah ditulis sesuai dokumen kependudukan." },
+      { judul: "Pelapor yang bertanggung jawab", isi: "Gunakan data pelapor yang dapat dihubungi bila diperlukan verifikasi." },
+      { judul: "Periksa dokumen pendukung", isi: "Siapkan dokumen yang tersedia agar pengurusan administrasi dapat dilanjutkan." },
+    ],
+  },
+  "keterangan-tidak-mampu": {
+    judul: "Informasi Tidak Mampu",
+    item: [
+      { judul: "Sesuai kebutuhan", isi: "Surat dapat digunakan untuk kebutuhan bantuan sosial, pendidikan, atau kesehatan." },
+      { judul: "Data keluarga akurat", isi: "Pastikan identitas pemohon dan data keluarga sesuai dengan dokumen yang dimiliki." },
+      { judul: "Isi formulir dengan jujur", isi: "Keterangan yang diberikan perlu sesuai dengan kondisi pemohon." },
+    ],
+  },
+  "keterangan-belum-menikah": {
+    judul: "Informasi Status Belum Menikah",
+    item: [
+      { judul: "Periksa identitas", isi: "Pastikan nama, NIK, dan alamat pada formulir sesuai dengan KTP dan KK." },
+      { judul: "Siapkan pernyataan", isi: "Surat pernyataan belum menikah perlu disiapkan sesuai persyaratan." },
+      { judul: "Sesuaikan tujuan", isi: "Gunakan surat untuk kebutuhan administrasi resmi yang memerlukan keterangan status." },
+    ],
+  },
+};
+
 export default function DetailSurat() {
   const { kategoriId, suratId } = useParams<{ kategoriId: string; suratId: string }>();
   const surat = getSuratById(suratId || "");
@@ -34,6 +101,7 @@ export default function DetailSurat() {
   }
 
   const isPlaceholder = surat.gformUrl.startsWith("#");
+  const infoSurat = informasiSurat[surat.id];
 
   return (
     <div className="px-6 py-12 max-w-2xl mx-auto">
@@ -49,12 +117,21 @@ export default function DetailSurat() {
       {/* Header */}
       <div ref={header.ref} className={`mb-8 transition-all duration-700 ${header.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
         <div className="flex items-center gap-4 mb-5">
-          <div
-            className="w-16 h-16 rounded-2xl flex items-center justify-center text-3xl shadow-md flex-shrink-0"
-            style={{ background: "linear-gradient(135deg, #22c55e, #16a34a)" }}
-          >
-            {surat.icon}
-          </div>
+          {surat.icon === "death-certificate" ? (
+            <div
+              className="w-16 h-16 rounded-2xl flex items-center justify-center text-white shadow-md flex-shrink-0"
+              style={{ background: "linear-gradient(135deg, #22c55e, #16a34a)" }}
+            >
+              <DeathCertificateIcon />
+            </div>
+          ) : (
+            <div
+              className="w-16 h-16 rounded-2xl flex items-center justify-center text-3xl shadow-md flex-shrink-0"
+              style={{ background: "linear-gradient(135deg, #22c55e, #16a34a)" }}
+            >
+              {surat.icon}
+            </div>
+          )}
           <div>
             <span className="text-xs text-green-500 font-display font-semibold tracking-widest uppercase">{kategori?.nama}</span>
             <h1 className="font-display font-black text-green-900 text-2xl leading-tight mt-0.5">{surat.nama}</h1>
@@ -73,6 +150,35 @@ export default function DetailSurat() {
           </h2>
           <p className="text-green-700 text-sm leading-relaxed">{surat.kegunaan}</p>
         </div>
+
+        {infoSurat && (
+          <div className="rounded-2xl overflow-hidden border border-green-200 bg-gradient-to-br from-green-50 to-emerald-50 shadow-sm">
+            <div className="px-5 py-4 border-b border-green-200 bg-white/70 flex items-center gap-3">
+              <div className="w-9 h-9 rounded-xl bg-green-600 text-white flex items-center justify-center font-display font-bold">
+                i
+              </div>
+              <div>
+                <h2 className="font-display font-bold text-green-900 text-base">
+                  {infoSurat.judul}
+                </h2>
+                <p className="text-green-600 text-xs mt-0.5">
+                  Hal penting sebelum mengajukan surat
+                </p>
+              </div>
+            </div>
+
+            <div className="grid sm:grid-cols-3 gap-px bg-green-200">
+              {infoSurat.item.map((item) => (
+                <div key={item.judul} className="bg-white/80 p-4">
+                  <p className="text-xs font-display font-bold text-green-900 mb-1">
+                    {item.judul}
+                  </p>
+                  <p className="text-xs leading-relaxed text-green-700">{item.isi}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Persyaratan */}
         <div className="bg-white rounded-2xl p-5 border border-green-100 shadow-sm">

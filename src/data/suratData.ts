@@ -60,10 +60,8 @@ const semuaSurat: JenisSurat[] = [
     deskripsi: "Surat yang menerangkan bahwa seseorang berdomisili di wilayah Desa Jambangan.",
     kegunaan: "Digunakan untuk keperluan pendaftaran sekolah, pembuatan rekening bank, pendaftaran kerja, dan keperluan administrasi lainnya yang memerlukan bukti domisili.",
     persyaratan: [
-      "Fotokopi KTP pemohon yang masih berlaku",
-      "Fotokopi Kartu Keluarga (KK)",
-      "Surat pengantar dari RT/RW setempat",
-      "Mengisi formulir permohonan yang tersedia",
+      "Siapkan NIK",
+      "Alamat yang sesuai dengan KTP",
     ],
     gformUrl: "https://docs.google.com/forms/d/e/1FAIpQLScdwoM9uaYrpZqdB4yK54uHf66iXZ-q4TIjuZBrYgMaSGsXvw/viewform?usp=header",
     icon: "🏠",
@@ -99,7 +97,7 @@ const semuaSurat: JenisSurat[] = [
       "Mengisi formulir permohonan yang tersedia",
     ],
     gformUrl: "https://docs.google.com/forms/d/e/1FAIpQLSfHSKKDnyfSCZ1EnELBnP7AJ0AcVB_zvQdpEYlBC2zWAf5Fvg/viewform?usp=header",
-    icon: "file-certificate",
+    icon: "death-certificate",
     kategoriId: "keterangan",
   },
   {
