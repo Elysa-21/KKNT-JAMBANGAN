@@ -51,33 +51,33 @@ const informasiSurat: Record<
   "keterangan-usaha": {
     judul: "Informasi Usaha",
     item: [
-      { judul: "Data usaha jelas", isi: "Tuliskan nama, jenis, dan alamat usaha sesuai kondisi sebenarnya." },
-      { judul: "Foto lokasi usaha", isi: "Siapkan foto tempat usaha agar proses verifikasi lebih mudah." },
-      { judul: "Cek tujuan pengajuan", isi: "Pastikan surat digunakan sesuai kebutuhan, seperti UMKM, izin, atau kredit usaha." },
+      { judul: "NIK dan alamat sesuai KTP", isi: "Pastikan NIK serta alamat pemohon ditulis sesuai dengan KTP." },
+      { judul: "Alamat usaha jelas", isi: "Tuliskan alamat usaha secara lengkap agar mudah dikenali." },
+      { judul: "Data usaha akurat", isi: "Periksa kembali nama dan jenis usaha sebelum mengirim formulir." },
     ],
   },
   "keterangan-kematian": {
     judul: "Informasi Kematian",
     item: [
-      { judul: "Data almarhum lengkap", isi: "Pastikan nama dan NIK almarhum/almarhumah ditulis sesuai dokumen kependudukan." },
-      { judul: "Pelapor yang bertanggung jawab", isi: "Gunakan data pelapor yang dapat dihubungi bila diperlukan verifikasi." },
-      { judul: "Periksa dokumen pendukung", isi: "Siapkan dokumen yang tersedia agar pengurusan administrasi dapat dilanjutkan." },
+      { judul: "NIK dan alamat sesuai KTP", isi: "Pastikan NIK serta alamat ditulis sesuai dengan KTP." },
+      { judul: "Informasi kematian akurat", isi: "Isi informasi kematian dengan jelas dan sesuai keadaan yang sebenarnya." },
+      { judul: "Periksa data sebelum kirim", isi: "Pastikan seluruh data telah benar sebelum formulir diajukan." },
     ],
   },
   "keterangan-tidak-mampu": {
     judul: "Informasi Tidak Mampu",
     item: [
-      { judul: "Sesuai kebutuhan", isi: "Surat dapat digunakan untuk kebutuhan bantuan sosial, pendidikan, atau kesehatan." },
-      { judul: "Data keluarga akurat", isi: "Pastikan identitas pemohon dan data keluarga sesuai dengan dokumen yang dimiliki." },
-      { judul: "Isi formulir dengan jujur", isi: "Keterangan yang diberikan perlu sesuai dengan kondisi pemohon." },
+      { judul: "NIK disiapkan", isi: "Siapkan NIK pemohon sebelum mengisi formulir pengajuan." },
+      { judul: "Alamat sesuai KTP", isi: "Gunakan alamat yang sama dengan alamat pada KTP." },
+      { judul: "Data diisi benar", isi: "Periksa kembali data pemohon agar pengajuan dapat diproses dengan baik." },
     ],
   },
   "keterangan-belum-menikah": {
     judul: "Informasi Status Belum Menikah",
     item: [
-      { judul: "Periksa identitas", isi: "Pastikan nama, NIK, dan alamat pada formulir sesuai dengan KTP dan KK." },
-      { judul: "Siapkan pernyataan", isi: "Surat pernyataan belum menikah perlu disiapkan sesuai persyaratan." },
-      { judul: "Sesuaikan tujuan", isi: "Gunakan surat untuk kebutuhan administrasi resmi yang memerlukan keterangan status." },
+      { judul: "NIK disiapkan", isi: "Siapkan NIK pemohon sebelum mengisi formulir pengajuan." },
+      { judul: "Alamat sesuai KTP", isi: "Gunakan alamat yang sama dengan alamat pada KTP." },
+      { judul: "Periksa data identitas", isi: "Pastikan nama dan data pemohon telah ditulis dengan benar." },
     ],
   },
 };
