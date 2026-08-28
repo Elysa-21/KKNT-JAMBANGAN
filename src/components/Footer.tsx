@@ -425,6 +425,11 @@ export default function Footer() {
                 >
                   <Link
                     to={item.to}
+                    onClick={() => {
+                      if (item.to === "/home") {
+                        window.dispatchEvent(new Event("play-home-video-audio"))
+                      }
+                    }}
                     className="
                       group
                       relative

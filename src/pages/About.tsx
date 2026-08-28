@@ -52,7 +52,7 @@ const tujuan = [
 
 /* =========================================================
    DATA PENGEMBANG
-   5 Teknik Informatika + 2 Administrasi Negara
+   5 Teknik Informatika + 2 Administrasi Publik
 ========================================================= */
 
 const team = [
@@ -83,13 +83,13 @@ const team = [
   },
   {
     name: "Hellen Qurotul Nurassifa",
-    prodi: "Administrasi Negara",
-    group: "Administrasi Negara",
+    prodi: "Administrasi Publik",
+    group: "Administrasi Publik",
   },
   {
     name: "Brilliant Khoirul Hanafi",
-    prodi: "Administrasi Negara",
-    group: "Administrasi Negara",
+    prodi: "Administrasi Publik",
+    group: "Administrasi Publik",
   },
 ]
 
@@ -245,7 +245,7 @@ export default function About() {
           </h2>
 
           <p className="text-green-500 text-xs font-medium tracking-widest uppercase">
-            KKNT Desa Jambangan 2026
+            KKN-T UNIVERSITAS NEGERI SURABAYA 2026
           </p>
         </div>
 
@@ -304,7 +304,7 @@ export default function About() {
         </div>
 
         {/* ===================================================
-            ADMINISTRASI NEGARA
+            ADMINISTRASI Publik
         =================================================== */}
 
         <div
@@ -323,7 +323,7 @@ export default function About() {
 
             <div>
               <h3 className="font-display font-bold text-green-900 text-sm">
-                Administrasi Negara
+                Administrasi Publik
               </h3>
 
               <p className="text-green-500 text-xs">2 anggota</p>
@@ -334,7 +334,7 @@ export default function About() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {team
-              .filter((member) => member.group === "Administrasi Negara")
+              .filter((member) => member.group === "Administrasi Publik")
               .map((member, i) => (
                 <div
                   key={member.name}
@@ -377,7 +377,7 @@ export default function About() {
           </div>
 
           <p className="mt-4 text-green-900 text-xl font-large">
-            KKNT Desa Jambangan 2026
+            KKN-T UNIVERSITAS NEGERI SURABAYA 2026
           </p>
         </div>
       </div>

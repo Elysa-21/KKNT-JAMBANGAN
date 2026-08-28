@@ -60,12 +60,28 @@ const stats = [
   },
 ]
 
-export default function Home() {
+interface HomeProps {
+  splashComplete: boolean
+}
+
+export default function Home({ splashComplete }: HomeProps) {
   const navigate = useNavigate()
+  const videoRef = useRef<HTMLVideoElement>(null)
 
   const hero = useInView(0.1)
   const profil = useInView(0.1)
   const fitur = useInView(0.1)
+
+  useEffect(() => {
+    if (!splashComplete) return
+
+    const video = videoRef.current
+    if (!video) return
+
+    video.muted = true
+    video.currentTime = 0
+    void video.play().catch(() => {})
+  }, [splashComplete])
 
   return (
     <div className="min-h-screen bg-white">
@@ -185,12 +201,17 @@ export default function Home() {
             {/* Video */}
             <div className="relative rounded-2xl overflow-hidden shadow-lg bg-green-900 aspect-video border border-green-200">
               <video
+                ref={videoRef}
                 className="absolute inset-0 w-full h-full object-cover"
                 src="/cinematic-desa.mp4"
                 controls
                 muted
                 loop
                 playsInline
+                onEnded={(event) => {
+                  event.currentTarget.currentTime = 0
+                  void event.currentTarget.play().catch(() => {})
+                }}
               />
             </div>
 
