@@ -12,7 +12,7 @@ function useInView(threshold = 0.1) {
       ([e]) => {
         if (e.isIntersecting) setVisible(true)
       },
-      { threshold },
+      { threshold }
     )
 
     obs.observe(el)
@@ -23,37 +23,193 @@ function useInView(threshold = 0.1) {
   return { ref, visible }
 }
 
-/* =========================================================
-   TUJUAN APLIKASI
-========================================================= */
+// =========================================================
+// ICON COMPONENTS
+// =========================================================
+
+function InformationIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="w-6 h-6"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M5 3.5h9l5 5V20a1.5 1.5 0 0 1-1.5 1.5h-12A1.5 1.5 0 0 1 4 20V5a1.5 1.5 0 0 1 1-1.5Z" />
+      <path d="M14 3.5V9h5" />
+      <path d="M8 13h5" />
+      <path d="M8 16h3" />
+      <circle cx="17.2" cy="16.7" r="2.8" />
+      <path d="m19.2 18.7 1.6 1.6" />
+    </svg>
+  )
+}
+
+function ChecklistIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="w-6 h-6"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <rect x="4" y="3" width="16" height="18" rx="2" />
+      <path d="M8 8h1" />
+      <path d="m8 12 1.2 1.2L11.5 11" />
+      <path d="M13.5 8h3" />
+      <path d="M13.5 12h3" />
+      <path d="M8 17h1" />
+      <path d="M13.5 17h3" />
+    </svg>
+  )
+}
+
+function ProcessIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="w-6 h-6"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <circle cx="5" cy="5" r="2" />
+      <circle cx="19" cy="19" r="2" />
+      <path d="M7 5h4a4 4 0 0 1 4 4v2a4 4 0 0 0 4 4h0" />
+      <path d="M17 17l2-2 2 2" />
+    </svg>
+  )
+}
+
+function DigitalIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="w-6 h-6"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <circle cx="12" cy="12" r="8.5" />
+      <path d="M3.5 12h17" />
+      <path d="M12 3.5c2.2 2.3 3.3 5.1 3.3 8.5s-1.1 6.2-3.3 8.5" />
+      <path d="M12 3.5c-2.2 2.3-3.3 5.1-3.3 8.5s1.1 6.2 3.3 8.5" />
+      <path d="M5.2 7.5h13.6" />
+      <path d="M5.2 16.5h13.6" />
+    </svg>
+  )
+}
+
+function DocumentIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="w-9 h-9"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M6 3.5h8l4 4V20a1.5 1.5 0 0 1-1.5 1.5h-10A1.5 1.5 0 0 1 5 20V5A1.5 1.5 0 0 1 6 3.5Z" />
+      <path d="M14 3.5V8h4" />
+      <path d="M8 12h7" />
+      <path d="M8 15h7" />
+      <path d="M8 18h4" />
+    </svg>
+  )
+}
+
+function ComputerIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="w-5 h-5"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <rect x="3" y="4" width="18" height="13" rx="2" />
+      <path d="M8 21h8" />
+      <path d="M12 17v4" />
+      <path d="M7 8h10" />
+      <path d="M8 11h.01" />
+      <path d="M11 11h5" />
+    </svg>
+  )
+}
+
+function GovernmentIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="w-5 h-5"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="m3 9 9-5 9 5" />
+      <path d="M5 10v8" />
+      <path d="M9 10v8" />
+      <path d="M15 10v8" />
+      <path d="M19 10v8" />
+      <path d="M3 20h18" />
+    </svg>
+  )
+}
+
+// =========================================================
+// TUJUAN APLIKASI
+// =========================================================
 
 const tujuan = [
   {
-    icon: "🤝",
+    icon: InformationIcon,
     title: "Mempermudah Akses Informasi",
     desc: "Mempermudah masyarakat mendapatkan informasi layanan administrasi surat secara mudah dan cepat.",
   },
   {
-    icon: "📋",
+    icon: ChecklistIcon,
     title: "Persyaratan Jelas",
     desc: "Menyediakan informasi persyaratan surat secara jelas sehingga masyarakat dapat mempersiapkan diri.",
   },
   {
-    icon: "🔄",
+    icon: ProcessIcon,
     title: "Transparansi Alur",
     desc: "Membantu masyarakat memahami alur pengajuan surat dari awal hingga selesai.",
   },
   {
-    icon: "🌐",
+    icon: DigitalIcon,
     title: "Digitalisasi Layanan",
     desc: "Mendukung digitalisasi pelayanan administrasi desa menuju pelayanan yang modern dan efisien.",
   },
 ]
 
-/* =========================================================
-   DATA PENGEMBANG
-   5 Teknik Informatika + 2 Administrasi Publik
-========================================================= */
+// =========================================================
+// DATA PENGEMBANG
+// 5 Teknik Informatika + 2 Administrasi Publik
+// =========================================================
 
 const team = [
   {
@@ -93,6 +249,10 @@ const team = [
   },
 ]
 
+// =========================================================
+// ABOUT
+// =========================================================
+
 export default function About() {
   const header = useInView(0.1)
   const about = useInView(0.1)
@@ -101,6 +261,7 @@ export default function About() {
 
   return (
     <div className="px-6 py-12 max-w-5xl mx-auto">
+
       {/* =====================================================
           HEADER
       ===================================================== */}
@@ -139,40 +300,42 @@ export default function About() {
         }`}
       >
         <div className="flex items-start gap-6 flex-col sm:flex-row">
+
           {/* Icon */}
 
           <div
-            className="w-20 h-20 rounded-2xl flex items-center justify-center text-4xl shadow-md flex-shrink-0"
+            className="w-20 h-20 rounded-2xl flex items-center justify-center text-white shadow-md flex-shrink-0"
             style={{
-              background: "linear-gradient(135deg, #22c55e, #16a34a)",
+              background:
+                "linear-gradient(135deg, #22c55e, #16a34a)",
             }}
           >
-            📄
+            <DocumentIcon />
           </div>
 
           {/* Text */}
 
           <div>
-            <h2 className="font-display font-black text-green-900 text-2xl mb-3">
-              Tentang E-SURAT
-            </h2>
+          <h2 className="font-display font-black text-green-900 text-2xl mb-3">
+            Tentang E-SURAT
+          </h2>
 
-            <p className="text-green-700 leading-relaxed text-sm mb-3">
-              <strong>E-SURAT</strong> merupakan website informasi pelayanan
-              surat Desa Jambangan yang dirancang untuk membantu masyarakat
-              memperoleh informasi mengenai jenis layanan, persyaratan, dan
-              prosedur pengajuan surat dengan lebih mudah dan efisien.
-            </p>
+          <p className="text-green-700 leading-relaxed text-sm mb-3 text-justify">
+            <strong>E-SURAT</strong> merupakan website informasi pelayanan
+            surat Desa Jambangan yang dirancang untuk membantu masyarakat
+            memperoleh informasi mengenai jenis layanan, persyaratan, dan
+            prosedur pengajuan surat dengan lebih mudah dan efisien.
+          </p>
 
-            <p className="text-green-700 leading-relaxed text-sm">
-              Website ini bukan sekadar portal informasi biasa — E-SURAT hadir
-              sebagai wujud komitmen Desa Jambangan dalam memberikan pelayanan
-              administrasi yang modern, transparan, dan ramah masyarakat. Dengan
-              E-SURAT, masyarakat dapat mengakses informasi layanan kapan saja
-              dan di mana saja tanpa harus datang langsung ke kantor desa hanya
-              untuk mengetahui persyaratan.
-            </p>
-          </div>
+          <p className="text-green-700 leading-relaxed text-sm text-justify">
+            Website ini bukan sekadar portal informasi biasa E-SURAT hadir
+            sebagai wujud komitmen Desa Jambangan dalam memberikan pelayanan
+            administrasi yang modern, transparan, dan ramah masyarakat. Dengan
+            E-SURAT, masyarakat dapat mengakses informasi layanan kapan saja
+            dan di mana saja tanpa harus datang langsung ke kantor desa hanya
+            untuk mengetahui persyaratan.
+          </p>
+        </div>
         </div>
       </div>
 
@@ -180,7 +343,10 @@ export default function About() {
           TUJUAN APLIKASI
       ===================================================== */}
 
-      <div ref={goals.ref} className="mb-12">
+      <div
+        ref={goals.ref}
+        className="mb-12"
+      >
         <h2
           className={`font-display font-black text-green-900 text-2xl mb-6 text-center transition-all duration-700 ${
             goals.visible
@@ -192,37 +358,42 @@ export default function About() {
         </h2>
 
         <div className="grid sm:grid-cols-2 gap-5">
-          {tujuan.map((item, i) => (
-            <div
-              key={item.title}
-              className={`card-hover bg-white rounded-2xl p-5 border border-green-100 shadow-sm flex gap-4 transition-all duration-700 ${
-                goals.visible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-8"
-              }`}
-              style={{
-                transitionDelay: `${i * 80}ms`,
-              }}
-            >
-              {/* Icon */}
+          {tujuan.map((item, i) => {
+            const Icon = item.icon
 
-              <div className="w-11 h-11 rounded-xl bg-green-50 flex items-center justify-center text-2xl flex-shrink-0 border border-green-100">
-                {item.icon}
+            return (
+              <div
+                key={item.title}
+                className={`group bg-white rounded-2xl p-5 border border-green-100 shadow-sm flex gap-4 transition-all duration-500 hover:-translate-y-1 hover:shadow-md ${
+                  goals.visible
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-8"
+                }`}
+                style={{
+                  transitionDelay: `${i * 80}ms`,
+                }}
+              >
+
+                {/* Icon */}
+
+                <div className="w-11 h-11 rounded-xl bg-green-50 flex items-center justify-center text-green-600 flex-shrink-0 border border-green-100 transition-all duration-300 group-hover:bg-green-600 group-hover:text-white group-hover:scale-105">
+                  <Icon />
+                </div>
+
+                {/* Text */}
+
+                <div>
+                  <h3 className="font-display font-bold text-green-900 text-sm mb-1">
+                    {item.title}
+                  </h3>
+
+                  <p className="text-green-600 text-xs leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
               </div>
-
-              {/* Text */}
-
-              <div>
-                <h3 className="font-display font-bold text-green-900 text-sm mb-1">
-                  {item.title}
-                </h3>
-
-                <p className="text-green-600 text-xs leading-relaxed">
-                  {item.desc}
-                </p>
-              </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
       </div>
 
@@ -231,6 +402,7 @@ export default function About() {
       ===================================================== */}
 
       <div ref={devs.ref}>
+
         {/* Judul */}
 
         <div
@@ -260,11 +432,13 @@ export default function About() {
               : "opacity-0 translate-y-8"
           }`}
         >
+
           {/* Prodi Title */}
 
           <div className="flex items-center gap-3 mb-5">
-            <div className="w-9 h-9 rounded-xl bg-green-100 flex items-center justify-center border border-green-200">
-              💻
+
+            <div className="w-9 h-9 rounded-xl bg-green-100 flex items-center justify-center border border-green-200 text-green-700">
+              <ComputerIcon />
             </div>
 
             <div>
@@ -272,7 +446,9 @@ export default function About() {
                 Teknik Informatika
               </h3>
 
-              <p className="text-green-500 text-xs">5 anggota</p>
+              <p className="text-green-500 text-xs">
+                5 anggota
+              </p>
             </div>
           </div>
 
@@ -280,7 +456,10 @@ export default function About() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {team
-              .filter((member) => member.group === "Teknik Informatika")
+              .filter(
+                (member) =>
+                  member.group === "Teknik Informatika"
+              )
               .map((member, i) => (
                 <div
                   key={member.name}
@@ -297,14 +476,16 @@ export default function About() {
                     {member.name}
                   </p>
 
-                  <p className="text-green-500 text-xs mt-1">{member.prodi}</p>
+                  <p className="text-green-500 text-xs mt-1">
+                    {member.prodi}
+                  </p>
                 </div>
               ))}
           </div>
         </div>
 
         {/* ===================================================
-            ADMINISTRASI Publik
+            ADMINISTRASI PUBLIK
         =================================================== */}
 
         <div
@@ -314,11 +495,13 @@ export default function About() {
               : "opacity-0 translate-y-8"
           }`}
         >
+
           {/* Prodi Title */}
 
           <div className="flex items-center gap-3 mb-5">
-            <div className="w-9 h-9 rounded-xl bg-green-100 flex items-center justify-center border border-green-200">
-              🏛️
+
+            <div className="w-9 h-9 rounded-xl bg-green-100 flex items-center justify-center border border-green-200 text-green-700">
+              <GovernmentIcon />
             </div>
 
             <div>
@@ -326,7 +509,9 @@ export default function About() {
                 Administrasi Publik
               </h3>
 
-              <p className="text-green-500 text-xs">2 anggota</p>
+              <p className="text-green-500 text-xs">
+                2 anggota
+              </p>
             </div>
           </div>
 
@@ -334,7 +519,10 @@ export default function About() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {team
-              .filter((member) => member.group === "Administrasi Publik")
+              .filter(
+                (member) =>
+                  member.group === "Administrasi Publik"
+              )
               .map((member, i) => (
                 <div
                   key={member.name}
@@ -351,7 +539,9 @@ export default function About() {
                     {member.name}
                   </p>
 
-                  <p className="text-green-500 text-xs mt-1">{member.prodi}</p>
+                  <p className="text-green-500 text-xs mt-1">
+                    {member.prodi}
+                  </p>
                 </div>
               ))}
           </div>
@@ -370,9 +560,7 @@ export default function About() {
         >
           <div className="flex items-center justify-center gap-3">
             <div className="w-12 h-px bg-green-200" />
-
             <div className="w-2 h-2 rounded-full bg-green-400" />
-
             <div className="w-12 h-px bg-green-200" />
           </div>
 

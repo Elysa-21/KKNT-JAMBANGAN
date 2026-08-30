@@ -367,23 +367,24 @@ export default function Home({ splashComplete }: HomeProps) {
             {/* Description */}
 
             <div>
-              <h3 className="font-display font-black text-green-900 text-xl mb-3">
-                Tentang Desa Jambangan
-              </h3>
+  <h3 className="font-display font-black text-green-900 text-xl mb-3">
+    Tentang Desa Jambangan
+  </h3>
 
-              <p className="text-green-700 leading-relaxed text-sm mb-4">
-                Desa Jambangan merupakan salah satu desa yang berkomitmen
-                memberikan pelayanan administrasi terbaik bagi seluruh warganya.
-                Dengan semangat digitalisasi layanan publik, kami terus berupaya
-                mempermudah akses masyarakat terhadap berbagai layanan
-                administrasi desa.
-              </p>
+  <p className="text-green-700 leading-relaxed text-sm mb-4 text-justify">
+    Desa Jambangan merupakan salah satu desa yang berkomitmen
+    memberikan pelayanan administrasi terbaik bagi seluruh warganya.
+    Dengan semangat digitalisasi layanan publik, kami terus berupaya
+    mempermudah akses masyarakat terhadap berbagai layanan
+    administrasi desa.
+  </p>
 
-              <p className="text-green-700 leading-relaxed text-sm">
-                E-SURAT hadir sebagai wujud komitmen Desa Jambangan dalam
-                memberikan informasi pelayanan surat yang mudah dipahami,
-                transparan, dan dapat diakses kapan saja dan di mana saja.
-              </p>
+  <p className="text-green-700 leading-relaxed text-sm text-justify">
+    E-SURAT hadir sebagai wujud komitmen Desa Jambangan dalam
+    memberikan informasi pelayanan surat yang mudah dipahami,
+    transparan, dan dapat diakses kapan saja dan di mana saja.
+  </p>
+
 
               {/* Statistics */}
 
