@@ -207,6 +207,10 @@ export default function Home({ splashComplete }: HomeProps) {
     video.currentTime = 0
 
     void video.play().catch(() => {})
+
+    return () => {
+      window.dispatchEvent(new Event("pause-home-video-audio"))
+    }
   }, [splashComplete])
 
   // ============================================================
@@ -357,6 +361,12 @@ export default function Home({ splashComplete }: HomeProps) {
                 muted
                 loop
                 playsInline
+                onPlay={() => {
+                  window.dispatchEvent(new Event("play-home-video-audio"))
+                }}
+                onPause={() => {
+                  window.dispatchEvent(new Event("pause-home-video-audio"))
+                }}
                 onEnded={(event) => {
                   event.currentTarget.currentTime = 0
                   void event.currentTarget.play().catch(() => {})

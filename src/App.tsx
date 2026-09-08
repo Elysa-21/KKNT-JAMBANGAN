@@ -28,7 +28,6 @@ export default function App() {
 
 function AppContent() {
   const [showSplash, setShowSplash] = useState(true);
-
   const homeVideoAudioRef = useRef<HTMLAudioElement>(null);
 
   const navigate = useNavigate();
@@ -55,46 +54,42 @@ function AppContent() {
     };
   }, [showSplash]);
 
-  // ============================================================
-  // AUDIO HOME VIDEO
-  // ============================================================
+  // Audio dipisahkan agar dapat otomatis mulai setelah pengguna memilih menu Home.
+  // Event pause/play dari video menjaga keduanya selalu berhenti dan mulai bersama.
   useEffect(() => {
-    const playHomeVideoAudio = () => {
+    const playAudio = () => {
       const audio = homeVideoAudioRef.current;
-
       if (!audio) return;
 
       audio.muted = false;
       audio.volume = 1;
-      audio.currentTime = 0;
-
       void audio.play().catch(() => {});
     };
 
-    window.addEventListener(
-      "play-home-video-audio",
-      playHomeVideoAudio
-    );
+    const pauseAudio = () => {
+      homeVideoAudioRef.current?.pause();
+    };
+
+    const restartAudio = () => {
+      const audio = homeVideoAudioRef.current;
+      if (audio) audio.currentTime = 0;
+      playAudio();
+    };
+
+    window.addEventListener("play-home-video-audio", playAudio);
+    window.addEventListener("pause-home-video-audio", pauseAudio);
+    window.addEventListener("restart-home-video-audio", restartAudio);
 
     return () => {
-      window.removeEventListener(
-        "play-home-video-audio",
-        playHomeVideoAudio
-      );
+      window.removeEventListener("play-home-video-audio", playAudio);
+      window.removeEventListener("pause-home-video-audio", pauseAudio);
+      window.removeEventListener("restart-home-video-audio", restartAudio);
     };
   }, []);
 
   return (
     <>
-      {/* ========================================================
-          AUDIO HOME VIDEO
-      ======================================================== */}
-      <audio
-        ref={homeVideoAudioRef}
-        src="/cinematic-desa.mp4"
-        muted
-        loop
-      />
+      <audio ref={homeVideoAudioRef} src="/cinematic-desa.mp4" loop />
 
       {/* ========================================================
           SPLASH SCREEN

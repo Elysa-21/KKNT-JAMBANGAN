@@ -427,7 +427,7 @@ export default function Footer() {
                     to={item.to}
                     onClick={() => {
                       if (item.to === "/home") {
-                        window.dispatchEvent(new Event("play-home-video-audio"))
+                        window.dispatchEvent(new Event("restart-home-video-audio"))
                       }
                     }}
                     className="
