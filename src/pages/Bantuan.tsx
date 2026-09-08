@@ -246,27 +246,6 @@ function ChevronIcon({ open }: { open: boolean }) {
 }
 
 /* =========================================================
-   PHONE ICON
-========================================================= */
-
-function PhoneIcon() {
-  return (
-    <svg
-      width="17"
-      height="17"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.19 18a19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.1 3.18 2 2 0 0 1 4.11 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92Z" />
-    </svg>
-  )
-}
-
-/* =========================================================
    EMAIL ICON
 ========================================================= */
 
@@ -758,92 +737,8 @@ export default function Bantuan() {
               CONTACT BUTTONS
           ================================================== */}
 
-          <div
-            className="
-              flex
-              flex-col
-              sm:flex-row
-              gap-3
-              justify-center
-              items-center
-            "
-          >
-            {/* =================================================
-    PHONE / WHATSAPP
-================================================== */}
-
-            <a
-              href="https://wa.me/62"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="
-    group
-    flex
-    items-center
-    gap-2
-    px-4
-    py-2
-    rounded-xl
-    bg-white
-    border
-    border-green-100
-    shadow-sm
-    transition-all
-    duration-300
-
-    hover:-translate-y-0.5
-    hover:shadow-md
-    hover:border-green-200
-  "
-            >
-              <div
-                className="
-      w-8
-      h-8
-      rounded-lg
-      bg-green-100
-      flex
-      items-center
-      justify-center
-      text-green-600
-
-      transition-all
-      duration-300
-
-      group-hover:bg-green-500
-      group-hover:text-white
-      group-hover:scale-105
-    "
-              >
-                <PhoneIcon />
-              </div>
-
-              <span
-                className="
-      text-sm
-      text-green-700
-      font-medium
-    "
-              >
-                WhatsApp Desa
-              </span>
-            </a>
-
-            {/* Divider */}
-
-            <span
-              className="
-    hidden
-    sm:block
-    text-green-300
-  "
-            >
-              |
-            </span>
-
-            {/* =================================================
-                EMAIL - GMAIL
-            ================================================== */}
+          <div className="flex justify-center">
+            {/* EMAIL - GMAIL */}
 
             <a
               href="https://mail.google.com/mail/?view=cm&fs=1&to=administrasidesajambangan@gmail.com"

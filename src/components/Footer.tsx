@@ -41,7 +41,7 @@ function useInView(threshold = 0.1) {
    CONTACT ICON
 ========================================================= */
 
-function ContactIcon({ type }: { type: "email" | "phone" | "location" }) {
+function ContactIcon({ type }: { type: "email" | "location" }) {
   if (type === "email") {
     return (
       <svg
@@ -56,23 +56,6 @@ function ContactIcon({ type }: { type: "email" | "phone" | "location" }) {
       >
         <rect x="3" y="5" width="18" height="14" rx="2" />
         <path d="m4 7 8 6 8-6" />
-      </svg>
-    )
-  }
-
-  if (type === "phone") {
-    return (
-      <svg
-        width="19"
-        height="19"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.7"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M7 3.5h2.2c.5 0 .9.3 1 .8l.8 3.1c.1.4 0 .8-.3 1.1L9.2 10a14.5 14.5 0 0 0 4.8 4.8l1.5-1.5c.3-.3.7-.4 1.1-.3l3.1.8c.5.1.8.5.8 1V17c0 1.1-.9 2-2 2C10.5 19 5 13.5 5 6.5c0-1.7.9-3 2-3Z" />
       </svg>
     )
   }
@@ -425,11 +408,6 @@ export default function Footer() {
                 >
                   <Link
                     to={item.to}
-                    onClick={() => {
-                      if (item.to === "/home") {
-                        window.dispatchEvent(new Event("restart-home-video-audio"))
-                      }
-                    }}
                     className="
                       group
                       relative
@@ -592,81 +570,6 @@ export default function Footer() {
                     "
                   >
                     administrasidesajambangan@gmail.com
-                  </p>
-                </div>
-              </a>
-
-              {/* WHATSAPP */}
-
-              <a
-                href="https://wa.me/6281234567890"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="
-                  group
-                  flex
-                  items-center
-                  gap-3
-                  p-2
-                  -mx-2
-                  rounded-xl
-
-                  transition-all
-                  duration-300
-
-                  hover:bg-white/10
-                "
-              >
-                <div
-                  className="
-                    flex-shrink-0
-                    w-9
-                    h-9
-
-                    rounded-xl
-
-                    bg-white/10
-                    border
-                    border-white/20
-
-                    flex
-                    items-center
-                    justify-center
-
-                    text-green-50
-
-                    transition-all
-                    duration-300
-
-                    group-hover:bg-white
-                    group-hover:text-green-600
-                    group-hover:-translate-y-0.5
-                  "
-                >
-                  <ContactIcon type="phone" />
-                </div>
-
-                <div>
-                  <p
-                    className="
-                      text-[9px]
-                      uppercase
-                      tracking-widest
-                      font-bold
-                      text-green-200
-                    "
-                  >
-                    WhatsApp
-                  </p>
-
-                  <p
-                    className="
-                      text-sm
-                      text-green-50
-                      mt-0.5
-                    "
-                  >
-                    Hubungi Desa Jambangan
                   </p>
                 </div>
               </a>

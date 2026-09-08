@@ -203,13 +203,24 @@ export default function Home({ splashComplete }: HomeProps) {
     const video = videoRef.current
     if (!video) return
 
-    video.muted = true
+    // Saat pengguna kembali ke Home melalui menu, coba putar video dengan
+    // suaranya. Browser dapat menolak autoplay bersuara pada kunjungan awal,
+    // tetapi navigasi dari klik menu biasanya dianggap sebagai interaksi pengguna.
+    video.muted = false
     video.currentTime = 0
 
-    void video.play().catch(() => {})
+    const playVideo = () => {
+      void video.play().catch(() => {})
+    }
+
+    if (video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) {
+      playVideo()
+    } else {
+      video.addEventListener("canplay", playVideo, { once: true })
+    }
 
     return () => {
-      window.dispatchEvent(new Event("pause-home-video-audio"))
+      video.removeEventListener("canplay", playVideo)
     }
   }, [splashComplete])
 
@@ -358,15 +369,9 @@ export default function Home({ splashComplete }: HomeProps) {
                 className="absolute inset-0 w-full h-full object-cover"
                 src="/cinematic-desa.mp4"
                 controls
-                muted
+                autoPlay
                 loop
                 playsInline
-                onPlay={() => {
-                  window.dispatchEvent(new Event("play-home-video-audio"))
-                }}
-                onPause={() => {
-                  window.dispatchEvent(new Event("pause-home-video-audio"))
-                }}
                 onEnded={(event) => {
                   event.currentTarget.currentTime = 0
                   void event.currentTarget.play().catch(() => {})

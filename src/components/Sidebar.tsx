@@ -375,10 +375,6 @@ min-h-[135px]
                 key={item.to}
                 to={item.to}
                 onClick={() => {
-                  if (item.to === "/home") {
-                    window.dispatchEvent(new Event("restart-home-video-audio"))
-                  }
-
                   if (window.innerWidth < 1024) {
                     onClose()
                   }
