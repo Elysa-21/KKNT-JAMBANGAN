@@ -121,6 +121,21 @@ const semuaSurat: JenisSurat[] = [
     icon: "👶",
     kategoriId: "keterangan",
   },
+  {
+    id: "keterangan-kehilangan",
+    nama: "Surat Keterangan Kehilangan",
+    deskripsi: "Surat yang menerangkan bahwa warga Desa Jambangan benar-benar mengalami kehilangan dokumen atau barang.",
+    kegunaan: "Digunakan sebagai persyaratan administrasi untuk mengurus Surat Keterangan Kehilangan di Polsek, seperti kehilangan Kartu Tanda Penduduk (KTP), kartu identitas, atau dokumen penting lainnya.",
+    persyaratan: [
+      "Siapkan NIK",
+      "Alamat yang sesuai dengan KTP",
+      "Data dokumen atau barang yang hilang, termasuk nomor dokumen bila ada",
+      "Kronologi kehilangan yang jelas (waktu dan lokasi kehilangan)",
+    ],
+    gformUrl: "https://docs.google.com/forms/d/e/1FAIpQLSdQ0caHiYZ90b3SQGrfpuwTwrGLgomwakY-3YF7nrqd6fINuQ/viewform?usp=header",
+    icon: "🔎",
+    kategoriId: "keterangan",
+  },
   // SURAT PERMOHONAN
   {
     id: "permohonan-umum",

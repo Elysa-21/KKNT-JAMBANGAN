@@ -80,6 +80,14 @@ const informasiSurat: Record<
       { judul: "Periksa data identitas", isi: "Pastikan nama dan data pemohon telah ditulis dengan benar." },
     ],
   },
+  "keterangan-kehilangan": {
+    judul: "Informasi Kehilangan",
+    item: [
+      { judul: "Identitas sesuai KTP", isi: "Pastikan NIK, nama, dan alamat pemohon ditulis sesuai dengan KTP." },
+      { judul: "Rincian kehilangan", isi: "Sebutkan dokumen atau barang yang hilang beserta nomor dokumen jika tersedia." },
+      { judul: "Kronologi yang benar", isi: "Jelaskan waktu dan lokasi kehilangan sesuai keadaan sebenarnya untuk keperluan pengurusan di Polsek." },
+    ],
+  },
 };
 
 export default function DetailSurat() {
